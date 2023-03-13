@@ -1,0 +1,36 @@
+.unitMini
+{
+	height: 30px;
+}
+
+.modelMini
+{
+	height: 30px;
+}
+
+.divUnit .spanUnit
+{
+	visibility: hidden;
+	/* bottom: 0%; */
+	/* top: 0%; */
+	/* left: 100%; */
+	/* background-color: #ff9900; */
+	/* box-shadow: 0px 0px 10px #ff9900; */
+	text-align: center;
+	opacity: 0;
+	border-radius: 4px;
+	transition: opacity 2s;
+	vertical-align: middle;
+
+	/* Position the tooltip text - see examples below! */
+	position: absolute;
+	z-index: 1;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.divUnit:hover .spanUnit {
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 2s;
+}

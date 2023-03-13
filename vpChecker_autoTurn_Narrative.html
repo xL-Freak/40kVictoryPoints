@@ -1,0 +1,798 @@
+
+<html>
+	<head>
+		<!-- HTML Rundenzähler; Version 202105211002 -->
+		<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div id="content">
+		
+			<table class="outer">
+				<tbody>
+					<tr>					
+						<td class="faction gameplay" id="showSymbol1"><img class="faction left"  src="./res/svg/adeptus_astartes.svg"></td>
+						<td class="title"><img src="https://trade.games-workshop.com/wp-content/uploads/2020/05/New-40k-Logo.png" class="logo"></td>
+						<td class="faction gameplay" id="showSymbol2"><img class="faction right" src="./res/svg/necron.svg"></td>
+					</tr>					
+					<tr>					
+						<td colspan="3">						
+							<table class="inner">
+								<tbody>
+									<tr class="startUp">
+										<td id="selectSymbol1"><img class="faction left"  src="./res/factions/Space Marines.png"></td>
+										<td id="selectVersus"><img class="faction"  src="./res/factions/vs.png"></td>
+										<td id="selectSymbol2"><img class="faction right"  src="./res/factions/Necrons.png"></td>
+									</tr>
+									<tr class="startUp">
+										<td class="selection">
+											<select class="selFaction" id="sFac1" onchange="setFactions()">
+												<option value="./res/factions/Custodes.png">Adeptus Custodes</option>
+												<option value="./res/factions/AdMech.png">Adeptus Mechanicus</option>
+												<option value="./res/factions/Sororitas.png">Adepta Sororitas</option>
+												<option value="./res/factions/Space Marines.png" selected="selected">Space Marines</option>
+												<option value="./res/factions/Dark Angels.png">SM - Dark Angels</option>
+												<option value="./res/factions/White Scars.png">SM - White Scars</option>
+												<option value="./res/factions/Space Wolves.png">SM - Space Wolves</option>
+												<option value="./res/factions/Imperial Fists.png">SM - Imperial Fists</option>
+												<option value="./res/factions/Blood Angels.png">SM - Blood Angels</option>
+												<option value="./res/factions/Iron Hands.png">SM - Iron Hands</option>
+												<option value="./res/factions/Ultramarines.png">SM - Ultramarines</option>
+												<option value="./res/factions/Raven Guard.png">SM - Raven Guard</option>
+												<option value="./res/factions/Salamanders.png">SM - Salamanders</option>
+												<option value="./res/factions/Black Templars.png">SM - Black Templars</option>
+												<option value="./res/factions/Deathwatch.png">SM - Deathwatch</option>
+												<option value="./res/factions/Flesh Tearers.png">SM - Flesh Tearers</option>
+												<option value="./res/factions/Grey Knights.png">SM - Grey Knights</option>
+												<option value="./res/factions/Astra Militarum.png">Astra Militarum</option>
+												<option value="./res/factions/Imperial Knights.png">Imperial Knights</option>
+												<option value="./res/factions/Renegades.png">Chaos Space Marines</option>
+												<option value="./res/factions/Emperors Children.png">CSM - Emperors Children</option>
+												<option value="./res/factions/Iron Warriors.png">CSM - Iron Warriors</option>
+												<option value="./res/factions/Night Lords.png">CSM - Night Lords</option>
+												<option value="./res/factions/World Eaters.png">CSM - World Eaters</option>
+												<option value="./res/factions/Death Guard.png">CSM - Death Guard</option>
+												<option value="./res/factions/Word Bearers.png">CSM - Word Bearers</option>
+												<option value="./res/factions/Black Legion.png">CSM - Black Legion</option>
+												<option value="./res/factions/Thousand Sons.png">CSM - Thousand Sons</option>
+												<option value="./res/factions/Alpha Legion.png">CSM - Alpha Legion</option>
+												<option value="./res/factions/Creations of Bile.png">CSM - Creations of Bile</option>
+												<option value="./res/factions/Red Corsairs.png">CSM - Red Corsairs</option>
+												<option value="./res/factions/Chaos Knights.png">Chaos Knights</option>
+												<option value="./res/factions/Chaos Daemons Khorne.png">Chaos Daemons of Khorne</option>
+												<option value="./res/factions/Chaos Daemons Nurgle.png">Chaos Daemons of Nurgle</option>
+												<option value="./res/factions/Chaos Daemons Tzeentch.png">Chaos Daemons of Tzeentch</option>
+												<option value="./res/factions/Chaos Daemons Slaanesh.png">Chaos Daemons of Slaanesh</option>
+												<option value="./res/factions/Votann.png">Leagues of Votann</option>
+												<option value="./res/factions/Aeldari Craftworld.png">Craftworld Aeldari</option>
+												<option value="./res/factions/Aeldari Harlequins.png">Harlequins</option>
+												<option value="./res/factions/Aeldari Ynnari.png">Ynnari</option>
+												<option value="./res/factions/Drukhari Wych.png">Drukhari Wyches</option>
+												<option value="./res/factions/Drukhari Kabalite.png">Drukhari Kabalites</option>
+												<option value="./res/factions/Drukhari Haemonculi.png">Drukhari Haemonculi</option>
+												<option value="./res/factions/Tyranids.png">Tyranids</option>
+												<option value="./res/factions/Genestealer Cults.png">Genestealer Cults</option>
+												<option value="./res/factions/Necrons.png">Necrons</option>
+												<option value="./res/factions/Orks.png">Orks</option>
+												<option value="./res/factions/Tau.png">Tau</option>
+											</select>
+										</td>
+										<td class="button">
+											<button type="switch" onclick="switchFactions()" id="buSwitch">tauschen</button>
+										</td>
+										<td class="selection">
+											<select class="selFaction" id="sFac2" onchange="setFactions()">
+												<option value="./res/factions/Custodes.png">Adeptus Custodes</option>
+												<option value="./res/factions/AdMech.png">Adeptus Mechanicus</option>
+												<option value="./res/factions/Sororitas.png">Adepta Sororitas</option>
+												<option value="./res/factions/Space Marines.png">Space Marines</option>
+												<option value="./res/factions/Dark Angels.png">SM - Dark Angels</option>
+												<option value="./res/factions/White Scars.png">SM - White Scars</option>
+												<option value="./res/factions/Space Wolves.png">SM - Space Wolves</option>
+												<option value="./res/factions/Imperial Fists.png">SM - Imperial Fists</option>
+												<option value="./res/factions/Blood Angels.png">SM - Blood Angels</option>
+												<option value="./res/factions/Iron Hands.png">SM - Iron Hands</option>
+												<option value="./res/factions/Ultramarines.png">SM - Ultramarines</option>
+												<option value="./res/factions/Raven Guard.png">SM - Raven Guard</option>
+												<option value="./res/factions/Salamanders.png">SM - Salamanders</option>
+												<option value="./res/factions/Black Templars.png">SM - Black Templars</option>
+												<option value="./res/factions/Deathwatch.png">SM - Deathwatch</option>
+												<option value="./res/factions/Flesh Tearers.png">SM - Flesh Tearers</option>
+												<option value="./res/factions/Grey Knights.png">SM - Grey Knights</option>
+												<option value="./res/factions/Astra Militarum.png">Astra Militarum</option>
+												<option value="./res/factions/Imperial Knights.png">Imperial Knights</option>
+												<option value="./res/factions/Renegades.png">Chaos Space Marines</option>
+												<option value="./res/factions/Emperors Children.png">CSM - Emperors Children</option>
+												<option value="./res/factions/Iron Warriors.png">CSM - Iron Warriors</option>
+												<option value="./res/factions/Night Lords.png">CSM - Night Lords</option>
+												<option value="./res/factions/World Eaters.png">CSM - World Eaters</option>
+												<option value="./res/factions/Death Guard.png">CSM - Death Guard</option>
+												<option value="./res/factions/Word Bearers.png">CSM - Word Bearers</option>
+												<option value="./res/factions/Black Legion.png">CSM - Black Legion</option>
+												<option value="./res/factions/Thousand Sons.png">CSM - Thousand Sons</option>
+												<option value="./res/factions/Alpha Legion.png">CSM - Alpha Legion</option>
+												<option value="./res/factions/Creations of Bile.png">CSM - Creations of Bile</option>
+												<option value="./res/factions/Red Corsairs.png">CSM - Red Corsairs</option>
+												<option value="./res/factions/Chaos Knights.png">Chaos Knights</option>
+												<option value="./res/factions/Chaos Daemons Khorne.png">Chaos Daemons of Khorne</option>
+												<option value="./res/factions/Chaos Daemons Nurgle.png">Chaos Daemons of Nurgle</option>
+												<option value="./res/factions/Chaos Daemons Tzeentch.png">Chaos Daemons of Tzeentch</option>
+												<option value="./res/factions/Chaos Daemons Slaanesh.png">Chaos Daemons of Slaanesh</option>
+												<option value="./res/factions/Votann.png">Leagues of Votann</option>
+												<option value="./res/factions/Aeldari Craftworld.png">Craftworld Aeldari</option>
+												<option value="./res/factions/Aeldari Harlequins.png">Harlequins</option>
+												<option value="./res/factions/Aeldari Ynnari.png">Ynnari</option>
+												<option value="./res/factions/Drukhari Wych.png">Drukhari Wyches</option>
+												<option value="./res/factions/Drukhari Kabalite.png">Drukhari Kabalites</option>
+												<option value="./res/factions/Drukhari Haemonculi.png">Drukhari Haemonculi</option>
+												<option value="./res/factions/Tyranids.png">Tyranids</option>
+												<option value="./res/factions/Genestealer Cults.png">Genestealer Cults</option>
+												<option value="./res/factions/Necrons.png" selected="selected">Necrons</option>
+												<option value="./res/factions/Orks.png">Orks</option>
+												<option value="./res/factions/Tau.png">Tau</option>
+											</select>
+										</td>
+									</tr>
+									<tr class="button">
+										<td class="selection" colspan="3">
+											<select class="selSize" id="selSize">
+												<option value="3">Combat Patrol</option>
+												<option value="6">Incursion</option>
+												<option value="12">Strike Force</option>
+												<option value="18">Onslaught</option>
+											</select>
+										</td>
+									</tr>
+									<tr class="button">
+										<td class="input" colspan="3">
+											<input id="inMission"></input>
+										</td>
+									</tr>
+									<tr id="trCP1">
+										<td><input id="iCrusade1" class="iNumber" type="number" value=0></td>
+										<td>Crusade Points</td>
+										<td><input id="iCrusade2" class="iNumber" type="number" value=0></td>
+									</tr>
+									<tr id="trCP2">
+										<td><input id="iCPBoni1" class="iNumber" type="number" value=0></td>
+										<td>CP Boni</td>
+										<td><input id="iCPBoni2" class="iNumber" type="number" value=0></td>
+									</tr>
+									<tr class="title gameplay">
+										<td colspan="3" id="tdCaption">DEPLOYMENT</td>
+									</tr>
+									<tr class="counter gameplay">
+										<td id="tdTurn1">0</td>
+										<td>TURN</td>
+										<td id="tdTurn2">0</td>
+									</tr>
+									<tr class="button">
+										<td>
+											<button class="start" onclick="start(1)" value="0" id="buStart1">Start</button>
+										</td>
+										<td>
+											<button class="hiddenUpDown" onclick="turnDown()" id="buTurnUp">-</button>
+											<button class="hiddenUpDown" onclick="turnUp()" id="buTurnDown">+</button>
+										</td>
+										<td>
+											<button class="start" onclick="start(2)" value="0" id="buStart2">Start</button>
+										</td>
+									</tr>
+									<tr class="counter gameplay">
+										<td id="tdCP1">0</td>
+										<td>CP</td>
+										<td id="tdCP2">0</td>
+									</tr>
+									<tr class="button gameplay">
+										<td>
+											<button class="upDown" onclick="down(1)" value="0" id="buCP1">-</button>
+											<button class="upDown" onclick="up(1)">+</button>
+										</td>
+										<td></td>
+										<td>
+											<button class="upDown" onclick="down(2)" value="0" id="buCP2">-</button>
+											<button class="upDown" onclick="up(2)">+</button>
+										</td>
+									</tr>
+									<tr class="counter gameplay">
+										<td class="tooltip" id="tdVP1">0
+										</td>
+										<td>VP</td>
+										<td class="tooltip" id="tdVP2">0
+										</td>
+									</tr>
+									<tr class="button gameplay">
+										<td>
+											<button class="upDown" onclick="VPdown(1, 1)" value="0" id="buVP1">-</button>
+											<button class="upDown" onclick="VPup(1, 1)">+</button>
+										</td>
+										<td></td>
+										<td>
+											<button class="upDown" onclick="VPdown(2, 1)" value="0" id="buVP2">-</button>
+											<button class="upDown" onclick="VPup(2, 1)">+</button>
+										</td>
+									</tr>
+									<tr class="button gameplay">
+										<td>
+											<button class="surrender" onclick="VPdown(1, 1)" value="0" id="buVP1">Aufgeben!</button>
+										</td>
+										<td></td>
+										<td>
+											<button class="surrender" onclick="VPdown(2, 1)" value="0" id="buVP2">Aufgeben!</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script>
+			var phase = 8;
+			var turn = 0;
+			var p1Turn = 0;
+			var p2Turn = 0;
+			var active = 0;
+			var p1CP = 0;
+			var p2CP = 0;
+			var p1VP = 0;
+			var p2VP = 0;
+			var p1CPtemp = 0;
+			var p2CPtemp = 0;
+			var p1VPtemp = 0;
+			var p2VPtemp = 0;
+			var players;
+			var caption = "";
+			const now = new Date();			
+			
+			var battlerounds = [];
+			battlerounds[1] = new Array(new Array(7), new Array(7));
+			battlerounds[2] = new Array(new Array(7), new Array(7));
+			battlerounds[3] = new Array(new Array(7), new Array(7));
+			battlerounds[4] = new Array(new Array(7), new Array(7));
+			battlerounds[5] = new Array(new Array(7), new Array(7));
+			
+			console.log(battlerounds);
+			
+			function switchFactions() 
+			{
+				var fac1 = document.getElementById("sFac1").value;
+				var fac2 = document.getElementById("sFac2").value;
+			
+				$("#sFac1").val(fac2).change();
+				$("#sFac2").val(fac1).change();
+			}
+			
+			function setFactions()
+			{
+				var fac1 = document.getElementById("sFac1").value;
+				var fac2 = document.getElementById("sFac2").value;
+				$("#selectSymbol1").html('<img class="faction left" src="'+fac1+'">');
+				$("#selectSymbol2").html('<img class="faction right" src="'+fac2+'">');
+			}
+			
+			function setSize()
+			{
+				p1CP = parseInt(document.getElementById("selSize").value);
+				p2CP = parseInt(document.getElementById("selSize").value);
+				p1CruPo = parseInt(document.getElementById("iCrusade1").value)
+				p2CruPo = parseInt(document.getElementById("iCrusade2").value)
+				difCruPo = p1CruPo-p2CruPo;
+				if(difCruPo<0)
+				{
+					p1CP = p1CP+Math.round(Math.abs(difCruPo)/2);
+				}else
+				{
+					p2CP = p2CP+Math.round(Math.abs(difCruPo)/2);
+				}
+				p1CP = p1CP+parseInt(document.getElementById("iCPBoni1").value);
+				p2CP = p2CP+parseInt(document.getElementById("iCPBoni2").value);
+				$("#tdCP1").html(p1CP);
+				$("#tdCP2").html(p2CP);
+			}
+			
+			function start(player)
+			{
+				setSize();
+				document.getElementById("buStart1").style.visibility = "hidden";
+				document.getElementById("buStart2").style.visibility = "hidden";
+				document.getElementById("sFac1").style.visibility = "hidden";
+				document.getElementById("sFac2").style.visibility = "hidden";
+				document.getElementById("selSize").style.visibility = "hidden";
+				document.getElementById("buSwitch").style.visibility = "hidden";
+				document.getElementById("trCP1").style.visibility = "hidden";
+				document.getElementById("trCP2").style.visibility = "hidden";
+				document.getElementById("inMission").style.visibility = "hidden";
+				document.getElementById("buTurnUp").style.visibility = "visible";
+				document.getElementById("buTurnDown").style.visibility = "visible";
+				
+				var fac1 = document.getElementById("sFac1").value;
+				var fac2 = document.getElementById("sFac2").value;
+				var mission = document.getElementById("inMission").value;
+				battlerounds[0]= now.getFullYear()+"-"+now.getMonth()+"-"+now.getDay()+" "+mission;
+				console.log(battlerounds);
+				$("#showSymbol1").html('<img class="faction left" src="'+fac1+'">');
+				$("#showSymbol2").html('<img class="faction right" src="'+fac2+'">');
+				
+				var elements = document.getElementsByClassName("startup");
+				
+				for(var i = 0; i < elements.length; i++){
+					elements[i].parentNode.removeChild(elements[i]);
+				}
+				
+				var elements = document.getElementsByClassName("gameplay");
+				
+				for(var i = 0; i < elements.length; i++){
+					elements[i].style.visibility = "visible";
+				}
+				
+				active = parseInt(player);
+				turnUp();
+				
+				for(i=0; i<2; i++)
+				{
+					var player = {}
+				}
+			}
+			
+			function turnDown()
+			{
+				phase--;
+				if(phase < 1) 
+				{
+					if(p1Turn + p2Turn == 1)
+					{	
+						phase = 1;				
+					}else
+					{
+						phase = 7;
+						if(active == 1)
+						{
+							active = 2;
+							p2Turn--;
+							down(1);
+						}else
+						{
+							active = 1;
+							p1Turn--;
+							down(2);
+						}	
+					}
+				}
+				
+				setPhase();
+				setTurn();
+				setBackground();
+			}
+			
+			function turnUp()
+			{
+				if(phase!=8){
+					turn = (p1Turn <= p2Turn ? p1Turn : p2Turn);
+					//battlerounds[turn+1][active-1][phase-1] = "Test - "&turn&"-"&active-1&"-"&phase-1;
+					battlerounds[turn+1][active-1][phase-1] = "Turn: "+(turn+1)+" - Active Player: "+(active)+" - Phase: "+caption+" | Player 1 received "+(p1VP-p1VPtemp)+" Victory Points";
+					p1VPtemp = 0+p1VP;
+				}
+				phase++;
+				if(phase > 7) 
+				{
+					phase = 1;
+					if(active == 1)
+					{
+						active = 2;
+						p1Turn++;
+						up(1);
+					}else
+					{
+						active = 1;
+						p2Turn++;
+						up(2);
+					}
+				}
+				
+				if(p1Turn + p2Turn == 11) 
+				{
+					phase = 8;
+					document.getElementById("buTurnUp").style.visibility = "hidden";
+					document.getElementById("buTurnDown").style.visibility = "hidden";
+					p1Turn = 5;
+					p2Turn = 5;
+				}
+				
+				setPhase();
+				setTurn();
+				setBackground();
+			}
+			
+			function setPhase()
+			{
+				
+				switch(phase)
+				{
+					case 0:
+						caption = "DEPLOYMENT";
+						color = "#555555";
+						break;
+					case 1:
+						caption = "COMMAND PHASE";
+						color = "#993399";
+						break;
+					case 2:
+						caption = "MOVEMENT PHASE";
+						color = "#009933";
+						break;
+					case 3:
+						caption = "PSYCHIC PHASE";
+						color = "#99ccff";
+						break;
+					case 4:
+						caption = "SHOOTING PHASE";
+						color = "#ffcc00";
+						break;
+					case 5:
+						caption = "CHARGE PHASE";
+						color = "#ff4d4d";
+						break;
+					case 6:
+						caption = "FIGHTING PHASE";
+						color = "#b30000";
+						break;
+					case 7:
+						caption = "MORALE PHASE";
+						color = "#003399";
+						break;
+					case 8:
+						caption = "GAME OVER";
+						color = "#FFFFFF";
+						break;
+				}
+				
+				$("#tdCaption").html(caption);
+			}
+			
+			function setBackground()
+			{
+				var elements;
+				if(active == 1)
+				{
+					actEl = document.getElementsByClassName("right");
+					othEl = document.getElementsByClassName("left");
+				}else
+				{
+					actEl = document.getElementsByClassName("left");
+					othEl = document.getElementsByClassName("right");
+				}
+				
+				for(var i = 0; i < actEl.length; i++){
+					actEl[i].style.backgroundColor = "#00cc66";
+					actEl[i].style.boxShadow = "0px 0px 20px #00cc66";
+				}
+				for(var i = 0; i < othEl.length; i++){
+					othEl[i].style.backgroundColor = "#555555";
+					othEl[i].style.boxShadow = "0px 0px 20px #555555";
+				}
+				document.getElementById("tdCaption").style.backgroundColor = color;
+				document.getElementById("tdCaption").style.boxShadow = "0px 0px 20px "+color;
+			}
+			
+			function setTurn()
+			{				
+				$("#tdTurn1").html(p1Turn);
+				$("#tdTurn2").html(p2Turn);
+			}
+			
+			function down(player)
+			{
+				if(player == 1)
+				{
+					p1CP--;
+					if(p1CP < 0) p1CP = 0;
+				}else
+				{
+					p2CP--;
+					if(p2CP < 0) p2CP = 0;
+				}
+				setCP();
+			}
+			
+			function up(player)
+			{
+				if(player == 1)
+				{
+					p1CP++;
+				}else
+				{
+					p2CP++;
+				}
+				setCP();
+			}
+			
+			function setCP()
+			{
+				$("#tdCP1").html(p1CP);
+				$("#tdCP2").html(p2CP);				
+			}
+			
+			function VPdown(player, i)
+			{
+				if(player == 1)
+				{
+					p1VP = p1VP - i;
+					if(p1VP < 0) p1VP = 0;
+				}else
+				{
+					p2VP = p2VP - i;
+					if(p2VP < 0) p2VP = 0;
+				}
+				setVP();
+			}
+			
+			function VPup(player, i)
+			{
+				if(player == 1)
+				{
+					p1VP = p1VP + i;
+				}else
+				{
+					p2VP = p2VP + i;
+				}
+				setVP();
+			}
+			
+			function setVP()
+			{
+				$("#tdVP1").html(p1VP);
+				$("#tdVP2").html(p2VP);				
+			}
+			
+			// define a handler
+			function doc_keyUp(x) {
+			console.log(x);
+				switch(x.key)
+				{
+					case 'q':
+						down(1);
+						break;
+					case 'a':
+						VPdown(1, 1);
+						break;
+					case 'y':
+						VPdown(1, 5);
+						break;
+					case 'w':
+						up(1);
+						break;
+					case 's':
+						VPup(1, 1);
+						break;
+					case 'x':
+						VPup(1, 5);
+						break;
+					case 'i':
+						down(2);
+						break;
+					case 'j':
+						VPdown(2, 1);
+						break;
+					case 'n':
+						VPdown(2, 5);
+						break;
+					case 'o':
+						up(2);
+						break;
+					case 'k':
+						VPup(2, 1);
+						break; 
+					case 'm':
+						VPup(2, 5);
+						break;
+					case ' ':
+						turnUp();
+						break;
+					default:
+						break;
+				}
+			}
+			// register the handler 
+			document.addEventListener('keyup', doc_keyUp, false);
+		</script>
+	</body>
+	<style>
+body
+{
+	font-family: "Abel", Verdana, Arial;
+	font-size: 14px;
+	background-color: #555555;
+	text-align: center;
+	font-weight: bold;
+}
+
+.upDown
+{
+	font-family: "Source Sans Pro", Verdana, Arial;
+    background-color: #293d3d;
+	border-style: solid;
+	border-color: #e0ebeb;
+	border-width: 1px;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+	border-radius: 25%;
+    margin: 0 2px;
+    width: 30px;
+    line-height: 28px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.hiddenUpDown
+{
+	font-family: "Source Sans Pro", Verdana, Arial;
+    background-color: #293d3d;
+	border-style: solid;
+	border-color: #e0ebeb;
+	border-width: 1px;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+	border-radius: 25%;
+    margin: 0 2px;
+    width: 30px;
+    line-height: 28px;
+    padding: 0;
+    cursor: pointer;
+	visibility: hidden;
+}
+
+.start
+{
+	font-family: "Source Sans Pro", Verdana, Arial;
+    background-color: #293d3d;
+	border-style: solid;
+	border-color: #e0ebeb;
+	border-width: 1px;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+	border-radius: 15%;
+    margin: 0 2px;
+    width: 80px;
+    line-height: 28px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.iNumber
+{
+	text-align: right;
+	width: 45px;
+}
+
+table
+{
+	text-align: center;
+	margin: 0 auto;
+}
+
+.logo
+{
+	height: 250px;
+}
+
+.faction
+{
+	border-radius: 9px;
+	box-shadow: 0px 0px 20px #555555;
+	max-height: 250px;
+	min-width: 250px;
+}
+
+.faction.left
+{
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+
+.title
+{
+	font-size: 96px;
+}
+
+.counter
+{
+	font-size: 72px;
+}
+
+.subcounter
+{
+	font-size: 48px;
+}
+
+#tdCaption
+{
+	width: 900px;
+	border-radius: 9px;
+	box-shadow: 0px 0px 20px #555555;
+}
+
+.gameplay
+{
+	visibility: hidden;
+	transition: opacity 2s;
+}
+
+.startup
+{
+	transition: opacity 2s;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+table, th, td 
+{
+	border: 1px solid #555;
+	border-collapse: collapse;
+}
+
+#selectSymbol1
+{
+	width: 700px;
+}
+
+#selectSymbol2
+{
+	width: 700px;
+}
+
+.ttTable
+{
+	color: #fff;
+	font-family: "Abel", Verdana, Arial;
+	font-size: 36px;
+}
+	</style>
+</html>
